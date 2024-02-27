@@ -12,7 +12,7 @@ import {
   Pagination,
 } from '@carbon/react';
 import React from 'react';
-import { usePreAppointments, weeksInYear } from './pre-appointment.resource';
+import { usePreAppointments } from './pre-appointment.resource';
 import { useTranslation } from 'react-i18next';
 import { ErrorState, usePagination } from '@openmrs/esm-framework';
 import { usePaginationInfo } from '@openmrs/esm-patient-common-lib';
@@ -65,7 +65,7 @@ const testProps = {
   locationUuid: '08feae7c-1352-11df-a1f1-0026b9348838',
   yearWeek: '2024-W07',
 };
-const weeksInYearData = weeksInYear();
+// const weeksInYearData = weeksInYear();
 
 export const PreAppointment: React.FC<PreAppointmentProps> = () => {
   const { t } = useTranslation();
@@ -108,7 +108,7 @@ export const PreAppointment: React.FC<PreAppointmentProps> = () => {
   const { results, goTo, currentPage } = usePagination(preappointments ?? [], PAGE_SIZE);
   const { pageSizes } = usePaginationInfo(PAGE_SIZE, preappointments.length, currentPage, results.length);
 
-  console.log(weeksInYear());
+  // console.log(weeksInYear());
 
   const tableRows: TableRow[] = results.map((row: any) => ({
     id: `${row.person_id}`,

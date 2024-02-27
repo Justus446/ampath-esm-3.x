@@ -92,31 +92,31 @@ export const usePreAppointments = (locationUuid: string, yearWeek: string, succe
 //   return weeks;
 // };
 
-const this_year = moment().year();
+// const this_year = moment().year();
 
-export const weeksInYear = () => {
-  let startdate = new Date(`${this_year - 1}-1-1`);
-  let enddate = moment(new Date()).format('YYYY-MM-DD');
-  const weeks = [];
-  while (new Date(startdate).getTime() <= new Date(enddate).getTime()) {
-    const week = moment(startdate).format('W');
-    let startofweek = moment(startdate).startOf('isoWeek').format('ll');
-    let endofweek = moment(startdate).endOf('isoWeek').format('ll');
+// const weeksInYear = () => {
+//   let startdate = new Date(`${this_year - 1}-1-1`);
+//   let enddate = moment(new Date()).format('YYYY-MM-DD');
+//   const weeks = [];
+//   while (new Date(startdate).getTime() <= new Date(enddate).getTime()) {
+//     const week = moment(startdate).format('W');
+//     let startofweek = moment(startdate).startOf('isoWeek').format('ll');
+//     let endofweek = moment(startdate).endOf('isoWeek').format('ll');
 
-    weeks.push({
-      value: `${moment(startdate).startOf('isoWeek').year()}-W${('0' + week).slice(-2)}`,
-      label: `${moment(startdate).startOf('isoWeek').year()} W${('0' + week).slice(
-        -2,
-      )}-From ${startofweek} to ${endofweek}`,
-    });
-    startdate = moment(startdate).add(7, 'days').format('YYYY-MM-DD');
-  }
-  weeks.push({
-    value: `${moment(enddate).startOf('isoWeek').year()}-W${('0' + moment(enddate).format('W')).slice(-2)}`,
-    label: `${moment(enddate).startOf('isoWeek').year()} W${('0' + moment(enddate).format('W')).slice(
-      -2,
-    )}-From ${moment(enddate).startOf('isoWeek').format('ll')} to ${moment(enddate).endOf('isoWeek').format('ll')}`,
-  });
+//     weeks.push({
+//       value: `${moment(startdate).startOf('isoWeek').year()}-W${('0' + week).slice(-2)}`,
+//       label: `${moment(startdate).startOf('isoWeek').year()} W${('0' + week).slice(
+//         -2,
+//       )}-From ${startofweek} to ${endofweek}`,
+//     });
+//     startdate = moment(startdate).add(7, 'days').format('YYYY-MM-DD');
+//   }
+//   weeks.push({
+//     value: `${moment(enddate).startOf('isoWeek').year()}-W${('0' + moment(enddate).format('W')).slice(-2)}`,
+//     label: `${moment(enddate).startOf('isoWeek').year()} W${('0' + moment(enddate).format('W')).slice(
+//       -2,
+//     )}-From ${moment(enddate).startOf('isoWeek').format('ll')} to ${moment(enddate).endOf('isoWeek').format('ll')}`,
+//   });
 
-  return weeks;
-};
+//   return weeks;
+// };
